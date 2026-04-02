@@ -3,701 +3,732 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rétis ZANNOU — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Rétis ZANNOU - Portfolio 2025/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #0f1115;
-    --paper: #f5f2ec;
-    --accent: #1a3a5c;
-    --gold: #b08d57;
-    --muted: #7a7570;
-    --line: rgba(15,17,21,0.12);
-    --card: #ffffff;
-    --green: #2d7a4f;
-    --green-bg: #e8f4ec;
-    --green-border: #b5ddc3;
-    --blue-bg: #e8eef4;
-    --blue-border: #b5c8dc;
-    --amber-bg: #f4f0e8;
-    --amber-border: #ddd0b5;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--paper); color: var(--ink);
-    font-family: 'Outfit', sans-serif; font-weight: 300;
-    line-height: 1.7; overflow-x: hidden;
-  }
-  body::before {
-    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  }
+:root {
+  --teal:       #1a5f6e;
+  --teal-2:     #2a7d90;
+  --teal-3:     #3d9db5;
+  --teal-4:     #b8dde6;
+  --teal-5:     #e8f4f7;
+  --slate:      #4a5568;
+  --slate-2:    #718096;
+  --slate-3:    #a0aec0;
+  --slate-4:    #e2e8f0;
+  --dark:       #0f1923;
+  --dark-2:     #1a2535;
+  --white:      #ffffff;
+  --off-white:  #f7f9fc;
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --shadow-sm:  0 2px 8px rgba(26,95,110,.08);
+  --shadow-md:  0 6px 24px rgba(26,95,110,.12);
+  --font-head:  'Syne', sans-serif;
+  --font-body:  'Inter', sans-serif;
+  --font-mono:  'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--off-white); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--slate-4); }
+::-webkit-scrollbar-thumb { background: var(--teal-3); border-radius: 4px; }
+::selection { background: var(--teal-4); color: var(--teal); }
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 1.1rem 3.5rem;
-    background: rgba(245,242,236,0.9); backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;
-    font-weight: 600; letter-spacing: 0.08em;
-    color: var(--accent); text-decoration: none;
-  }
-  .nav-links { display: flex; gap: 1.8rem; list-style: none; }
-  .nav-links a {
-    font-family: 'DM Mono', monospace; font-size: 0.66rem;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--muted); text-decoration: none; transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--accent); }
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  padding: 0 48px; display: flex; align-items: center; justify-content: space-between;
+  height: 68px;
+  background: rgba(247,249,252,.97);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--slate-4);
+  transition: box-shadow .3s;
+}
+.nav.scrolled-hero {
+  box-shadow: var(--shadow-sm);
+}
+.nav-brand { font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: var(--teal); letter-spacing: .06em; }
+.nav-links { display: flex; gap: 8px; list-style: none; }
+.nav-links a {
+  font-size: 13px; font-weight: 500; color: var(--slate); text-decoration: none;
+  padding: 6px 14px; border-radius: 100px; transition: background .2s, color .2s;
+}
+.nav-links a:hover { background: var(--teal-5); color: var(--teal); }
+.nav-links a.active { background: var(--teal); color: var(--white); }
+.nav-cta {
+  font-size: 13px; font-weight: 600; color: var(--white); background: var(--teal);
+  border: none; border-radius: 100px; padding: 8px 20px; cursor: pointer;
+  transition: background .2s, transform .15s; text-decoration: none; display: inline-block;
+}
+.nav-cta:hover { background: var(--teal-2); transform: translateY(-1px); }
+.hamburger { display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--teal); border-radius: 2px; }
 
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh; display: grid; grid-template-columns: 55% 45%;
-    position: relative; overflow: hidden;
-  }
-  .hero-left {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 8rem 4rem 4rem; position: relative; z-index: 1;
-  }
-  .hero-tag {
-    font-family: 'DM Mono', monospace; font-size: 0.66rem;
-    letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold);
-    margin-bottom: 1.4rem; display: flex; align-items: center; gap: 0.8rem;
-  }
-  .hero-tag::before { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--gold); }
-  .hero-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 5.2vw, 4.8rem);
-    font-weight: 300; line-height: 1.0; color: var(--ink); margin-bottom: 0.1rem;
-  }
-  .hero-name span { font-weight: 600; color: var(--accent); font-style: italic; }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
-    font-weight: 300; font-style: italic; color: var(--muted);
-    margin: 1.1rem 0 0.3rem; line-height: 1.5;
-  }
-  .hero-subtitle {
-    font-family: 'DM Mono', monospace; font-size: 0.65rem;
-    letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.8rem;
-  }
-  .hero-tagline {
-    font-size: 0.88rem; color: var(--ink); max-width: 430px;
-    margin-bottom: 2.2rem; line-height: 1.85; opacity: 0.8;
-    border-left: 2px solid var(--gold); padding-left: 1rem;
-    font-style: italic;
-  }
-  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.8rem 1.8rem; background: var(--accent); color: #fff;
-    font-family: 'DM Mono', monospace; font-size: 0.68rem;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    text-decoration: none; transition: all 0.25s;
-  }
-  .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
-  .btn-secondary {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.8rem 1.8rem; border: 1px solid var(--accent); color: var(--accent);
-    font-family: 'DM Mono', monospace; font-size: 0.68rem;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    text-decoration: none; transition: all 0.25s;
-  }
-  .btn-secondary:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
+/* HERO */
+.hero {
+  min-height: 100vh; background: var(--dark);
+  display: flex; align-items: center;
+  position: relative; overflow: hidden; padding: 120px 48px 80px;
+}
+.hero-bg-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(26,95,110,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(26,95,110,.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridPan 40s linear infinite;
+}
+@keyframes gridPan { from { background-position: 0 0; } to { background-position: 60px 60px; } }
+.hero-blob {
+  position: absolute; border-radius: 50%; filter: blur(90px); opacity: .22;
+  animation: blobFloat 12s ease-in-out infinite alternate;
+}
+.hero-blob-1 { width: 520px; height: 520px; background: var(--teal-3); top: -120px; right: -80px; }
+.hero-blob-2 { width: 360px; height: 360px; background: #2a5f8e; bottom: -60px; left: 10%; animation-delay: -5s; }
+@keyframes blobFloat { from { transform: scale(1) translate(0,0); } to { transform: scale(1.08) translate(20px,-20px); } }
+.hero-content { position: relative; z-index: 2; max-width: 800px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(26,95,110,.35); border: 1px solid rgba(61,157,181,.3);
+  border-radius: 100px; padding: 6px 16px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  color: var(--teal-4); letter-spacing: .08em; margin-bottom: 28px;
+  animation: fadeUp .6s ease both;
+}
+.hero-badge-dot { width: 6px; height: 6px; background: var(--teal-3); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.4; } }
+.hero-name {
+  font-family: var(--font-head); font-size: clamp(52px,7vw,96px); font-weight: 800;
+  color: var(--white); letter-spacing: -.02em; line-height: 1;
+  animation: fadeUp .7s .1s ease both;
+}
+.hero-name em { color: var(--teal-3); font-style: normal; }
+.hero-subtitle {
+  font-size: clamp(14px,1.8vw,17px); font-weight: 400; color: var(--slate-3);
+  margin-top: 20px; margin-bottom: 36px; max-width: 560px; line-height: 1.7;
+  animation: fadeUp .7s .2s ease both;
+}
+.hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; animation: fadeUp .7s .3s ease both; }
+.hero-pill {
+  display: flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+  border-radius: 100px; padding: 6px 14px;
+  font-size: 12px; color: var(--slate-3); font-weight: 500;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; animation: fadeUp .7s .4s ease both; }
+.btn-primary {
+  font-weight: 600; font-size: 14px; color: var(--dark); background: var(--teal-3);
+  border: none; border-radius: 100px; padding: 13px 28px; cursor: pointer;
+  transition: background .2s, transform .15s; text-decoration: none; display: inline-block;
+}
+.btn-primary:hover { background: var(--teal-4); transform: translateY(-2px); }
+.btn-outline {
+  font-weight: 500; font-size: 14px; color: var(--slate-3); background: transparent;
+  border: 1px solid rgba(255,255,255,.18); border-radius: 100px; padding: 13px 28px;
+  cursor: pointer; transition: border-color .2s, color .2s, transform .15s;
+  text-decoration: none; display: inline-block;
+}
+.btn-outline:hover { border-color: rgba(255,255,255,.4); color: var(--white); transform: translateY(-2px); }
+.hero-stats {
+  position: absolute; right: 48px; bottom: 60px;
+  display: grid; grid-template-columns: repeat(4, auto); gap: 2px;
+  animation: fadeUp .7s .5s ease both;
+}
+.stat-box {
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
+  padding: 20px 28px; text-align: center;
+}
+.stat-box:first-child { border-radius: var(--radius-md) 0 0 var(--radius-md); }
+.stat-box:last-child  { border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+.stat-num { font-family: var(--font-head); font-size: 28px; font-weight: 700; color: var(--teal-3); display: block; line-height: 1; }
+.stat-lbl { font-size: 10px; font-weight: 500; color: var(--slate-3); letter-spacing: .06em; margin-top: 4px; display: block; text-transform: uppercase; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
 
-  .hero-right {
-    position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background: linear-gradient(140deg, var(--accent) 0%, #0b1e30 100%);
-  }
-  .hero-bg::after {
-    content: ''; position: absolute; inset: 0;
-    background: repeating-linear-gradient(-45deg, transparent, transparent 38px, rgba(255,255,255,0.025) 38px, rgba(255,255,255,0.025) 39px);
-  }
-  .hero-cards {
-    position: relative; z-index: 2;
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 1rem; padding: 2.5rem;
-  }
-  .stat-card {
-    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.11);
-    padding: 1.3rem 1rem; text-align: center;
-    backdrop-filter: blur(4px); transition: transform 0.25s;
-    animation: fadeUp 0.7s ease both;
-  }
-  .stat-card:hover { transform: translateY(-4px); }
-  .stat-card:nth-child(1){animation-delay:.3s} .stat-card:nth-child(2){animation-delay:.4s}
-  .stat-card:nth-child(3){animation-delay:.5s} .stat-card:nth-child(4){animation-delay:.6s}
-  .stat-card:nth-child(5){animation-delay:.7s} .stat-card:nth-child(6){animation-delay:.8s}
-  .stat-num {
-    font-family: 'Cormorant Garamond', serif; font-size: 2.2rem;
-    font-weight: 300; color: #fff; line-height: 1;
-  }
-  .stat-lbl {
-    font-family: 'DM Mono', monospace; font-size: 0.58rem;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: rgba(255,255,255,0.48); margin-top: 0.35rem;
-  }
+/* SECTIONS */
+section { padding: 100px 48px; }
+.inner { max-width: 1200px; margin: 0 auto; }
+.sec-tag {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  color: var(--teal); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 12px;
+}
+.sec-tag.light { color: var(--teal-3); }
+.sec-head {
+  font-family: var(--font-head); font-size: clamp(30px,4vw,50px);
+  font-weight: 700; letter-spacing: -.02em; line-height: 1.1;
+  color: var(--dark); margin-bottom: 14px;
+}
+.sec-head.light { color: var(--white); }
+.sec-sub { font-size: 16px; color: var(--slate); max-width: 520px; line-height: 1.7; }
+.sec-sub.light { color: var(--slate-3); }
+.sec-header { margin-bottom: 60px; }
+.reveal { opacity: 1; transform: translateY(0); transition: opacity .6s ease, transform .6s ease; }
+.js-loaded .reveal { opacity: 0; transform: translateY(28px); }
+.js-loaded .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ── SECTIONS ── */
-  section { position: relative; z-index: 1; }
-  .wrap { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
-  .sec-head {
-    display: flex; align-items: baseline; gap: 1.4rem;
-    margin-bottom: 3.2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line);
-  }
-  .sec-num { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--gold); letter-spacing: 0.1em; }
-  .sec-title { font-family: 'Cormorant Garamond', serif; font-size: 2.1rem; font-weight: 400; color: var(--accent); }
+/* PROFIL */
+.profil { background: var(--white); }
+.profil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+.profil-text p { font-size: 16px; color: var(--slate); line-height: 1.8; margin-bottom: 18px; text-align: justify; }
+.profil-text p:last-of-type { margin-bottom: 0; }
+.tags-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.tag {
+  font-size: 12px; font-weight: 500; background: var(--teal-5); color: var(--teal);
+  border-radius: 100px; padding: 5px 14px; border: 1px solid var(--teal-4);
+}
+.info-card {
+  background: var(--off-white); border-radius: var(--radius-lg);
+  border: 1px solid var(--slate-4); padding: 24px; margin-bottom: 14px;
+}
+.info-card-title {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+  color: var(--slate-2); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 16px;
+}
+.info-row { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+.info-row:last-child { margin-bottom: 0; }
+.info-icon {
+  width: 32px; height: 32px; border-radius: var(--radius-sm);
+  background: var(--teal-5); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.info-lbl { font-size: 11px; color: var(--slate-2); font-weight: 500; }
+.info-val { font-size: 13px; color: var(--dark); font-weight: 500; margin-top: 2px; }
 
-  /* ── ABOUT ── */
-  #about { background: var(--card); border-top: 3px solid var(--accent); }
-  .about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 4.5rem; align-items: start; }
-  .about-text p { margin-bottom: 1.1rem; font-size: 0.93rem; line-height: 1.88; color: #2a2a2a; }
+/* FORMATION */
+.formation { background: var(--off-white); }
+.formation-list { max-width: 740px; }
+.edu-item {
+  display: grid; grid-template-columns: 80px 1fr; gap: 24px;
+  padding: 28px 0; border-bottom: 1px solid var(--slate-4);
+}
+.edu-item:last-child { border-bottom: none; }
+.edu-year { font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--slate-2); padding-top: 4px; line-height: 1.4; text-align: right; }
+.edu-badge {
+  display: inline-block; font-size: 10px; font-weight: 600;
+  background: var(--teal); color: var(--white);
+  border-radius: 4px; padding: 2px 8px; margin-bottom: 8px; letter-spacing: .04em;
+}
+.edu-degree { font-family: var(--font-head); font-size: 18px; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+.edu-school { font-size: 14px; color: var(--teal); font-weight: 500; margin-bottom: 8px; }
+.edu-desc { font-size: 14px; color: var(--slate); line-height: 1.6; text-align: justify; }
 
-  .profile-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.4rem 0.9rem; margin-bottom: 1.2rem;
-    background: var(--blue-bg); border: 1px solid var(--blue-border);
-    font-family: 'DM Mono', monospace; font-size: 0.62rem;
-    letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);
-  }
+/* COMPÉTENCES */
+.competences { background: var(--dark); }
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.skill-group {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-lg); padding: 26px;
+  transition: background .3s, border-color .3s, transform .3s;
+}
+.skill-group:hover { background: rgba(26,95,110,.2); border-color: rgba(61,157,181,.3); transform: translateY(-4px); }
+.skill-group-icon {
+  width: 42px; height: 42px; border-radius: var(--radius-md);
+  background: rgba(26,95,110,.4); display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+}
+.skill-group-title { font-family: var(--font-head); font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 14px; }
+.skill-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.skill-chip {
+  font-size: 11px; font-weight: 500; background: rgba(61,157,181,.15); color: var(--teal-4);
+  border-radius: 100px; padding: 4px 12px; border: 1px solid rgba(61,157,181,.2);
+}
 
-  .interest-box {
-    margin-top: 1.8rem; padding: 1.3rem 1.5rem;
-    background: var(--paper); border-left: 3px solid var(--gold);
-  }
-  .interest-box-title {
-    font-family: 'DM Mono', monospace; font-size: 0.6rem;
-    letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem;
-  }
-  .tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-  .tag-item {
-    font-size: 0.76rem; padding: 0.25rem 0.75rem;
-    border: 1px solid var(--line); color: var(--accent); background: white;
-  }
+/* TRAVAUX */
+.travaux { background: var(--white); }
+.works-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.work-card {
+  background: var(--off-white); border: 1px solid var(--slate-4);
+  border-radius: var(--radius-lg); padding: 30px;
+  transition: border-color .3s, box-shadow .3s, transform .3s;
+}
+.work-card:hover { border-color: var(--teal-3); box-shadow: var(--shadow-md); transform: translateY(-4px); }
+.work-card.featured { border-color: var(--teal-3); background: linear-gradient(135deg, var(--teal-5) 0%, var(--white) 100%); }
+.work-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.work-type {
+  font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--teal); background: var(--teal-5); border-radius: 4px;
+  padding: 3px 10px; border: 1px solid var(--teal-4);
+}
+.work-card.featured .work-type { background: var(--teal); color: var(--white); border-color: var(--teal); }
+.work-year { font-family: var(--font-mono); font-size: 12px; color: var(--slate-2); }
+.work-title { font-family: var(--font-head); font-size: 18px; font-weight: 600; color: var(--dark); margin-bottom: 10px; line-height: 1.3; }
+.work-desc { font-size: 14px; color: var(--slate); line-height: 1.7; margin-bottom: 16px; text-align: justify; }
+.work-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.work-chip {
+  font-size: 11px; font-weight: 500; color: var(--teal); background: var(--teal-5);
+  border-radius: 100px; padding: 4px 12px; border: 1px solid var(--teal-4);
+}
 
-  .meta-col { display: flex; flex-direction: column; }
-  .meta-row {
-    display: flex; flex-direction: column; gap: 0.18rem;
-    padding: 0.9rem 0; border-bottom: 1px solid var(--line);
-  }
-  .meta-lbl {
-    font-family: 'DM Mono', monospace; font-size: 0.6rem;
-    letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold);
-  }
-  .meta-val { font-size: 0.87rem; color: var(--ink); line-height: 1.5; }
+/* EXPÉRIENCES */
+.experiences { background: var(--off-white); }
+.exp-item {
+  display: grid; grid-template-columns: 100px 1fr; gap: 32px;
+  padding: 30px 0; border-bottom: 1px solid var(--slate-4);
+}
+.exp-item:last-child { border-bottom: none; }
+.exp-period { font-family: var(--font-mono); font-size: 11px; font-weight: 500; color: var(--slate-2); line-height: 1.5; padding-top: 4px; text-align: right; }
+.exp-role { font-family: var(--font-head); font-size: 18px; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+.exp-org { font-size: 14px; color: var(--teal); font-weight: 500; margin-bottom: 12px; }
+.exp-bullets { padding-left: 0; list-style: none; }
+.exp-bullets li {
+  font-size: 14px; color: var(--slate); line-height: 1.7; text-align: justify;
+  padding-left: 16px; margin-bottom: 6px; position: relative;
+}
+.exp-bullets li::before {
+  content: ''; position: absolute; left: 0; top: 10px;
+  width: 4px; height: 4px; border-radius: 50%; background: var(--teal-3);
+}
 
-  /* ── FORMATION ── */
-  #formation { background: var(--paper); }
-  .form-list { display: flex; flex-direction: column; }
-  .form-item {
-    display: grid; grid-template-columns: 130px 1fr;
-    gap: 2rem; padding: 1.7rem 0;
-    border-bottom: 1px solid var(--line); align-items: start;
-  }
-  .form-year {
-    font-family: 'DM Mono', monospace; font-size: 0.65rem;
-    color: var(--gold); letter-spacing: 0.08em; padding-top: 0.2rem; line-height: 1.6;
-  }
-  .form-degree {
-    font-family: 'Cormorant Garamond', serif; font-size: 1.12rem;
-    font-weight: 600; color: var(--accent); margin-bottom: 0.18rem;
-  }
-  .form-school { font-size: 0.83rem; color: var(--muted); }
-  .form-detail { font-size: 0.8rem; color: var(--ink); margin-top: 0.35rem; line-height: 1.6; opacity: 0.8; }
+/* CONTACT */
+.contact { background: var(--dark); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.contact-links { display: flex; flex-direction: column; gap: 10px; margin-top: 36px; }
+.contact-link {
+  display: flex; align-items: center; gap: 16px;
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-md); padding: 16px 20px;
+  text-decoration: none; color: var(--white);
+  transition: background .25s, border-color .25s, transform .2s;
+}
+.contact-link:hover { background: rgba(26,95,110,.3); border-color: rgba(61,157,181,.4); transform: translateX(6px); }
+.contact-link-icon {
+  width: 36px; height: 36px; border-radius: var(--radius-sm);
+  background: rgba(26,95,110,.5); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.contact-link-lbl { font-size: 11px; color: var(--slate-3); font-weight: 500; }
+.contact-link-val { font-size: 14px; font-weight: 500; margin-top: 2px; }
+.contact-avail {
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-lg); padding: 28px;
+}
+.avail-head { font-family: var(--font-head); font-size: 18px; font-weight: 600; color: var(--white); margin-bottom: 20px; }
+.avail-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 16px; }
+.avail-item:last-child { margin-bottom: 0; }
+.avail-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal-3); flex-shrink: 0; margin-top: 6px; }
+.avail-text { font-size: 14px; color: var(--slate-3); line-height: 1.6; }
+.avail-text strong { color: var(--white); font-weight: 500; }
 
-  /* ── SKILLS ── */
-  #skills { background: var(--card); }
-  .skills-block { display: flex; flex-direction: column; gap: 2.8rem; }
-  .skill-cat-title {
-    font-family: 'DM Mono', monospace; font-size: 0.62rem;
-    letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold);
-    margin-bottom: 1.1rem; padding-bottom: 0.55rem; border-bottom: 1px solid var(--line);
-  }
-  .skills-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-    gap: 1px; background: var(--line); border: 1px solid var(--line);
-  }
-  .sk {
-    background: var(--card); padding: 1.3rem 1.1rem;
-    display: flex; flex-direction: column; gap: 0.4rem;
-    transition: background 0.18s; cursor: default;
-  }
-  .sk:hover { background: var(--paper); }
-  .sk-icon { font-size: 1.25rem; }
-  .sk-name {
-    font-family: 'DM Mono', monospace; font-size: 0.74rem;
-    color: var(--accent); letter-spacing: 0.04em;
-  }
-  .sk-desc { font-size: 0.72rem; color: var(--muted); line-height: 1.5; }
-  .sk-bar { height: 2px; background: var(--line); margin-top: 0.4rem; position: relative; overflow: hidden; }
-  .sk-fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--gold); }
+/* FOOTER */
+footer {
+  background: var(--dark-2); padding: 24px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.footer-brand { font-family: var(--font-mono); font-size: 12px; color: var(--slate-2); }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-size: 12px; color: var(--slate-2); text-decoration: none; transition: color .2s; }
+.footer-links a:hover { color: var(--teal-3); }
 
-  .softskills-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 0.9rem;
-  }
-  .softskill {
-    display: flex; align-items: flex-start; gap: 0.75rem;
-    padding: 0.9rem 1.1rem; border: 1px solid var(--line);
-    font-size: 0.83rem; color: var(--ink); line-height: 1.5;
-  }
-  .softskill::before {
-    content: '›'; color: var(--gold);
-    font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
-    flex-shrink: 0; line-height: 1.3;
-  }
+/* MOBILE MENU */
+.mobile-nav {
+  position: fixed; inset: 0; z-index: 850;
+  background: var(--dark-2); display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 8px;
+  opacity: 0; pointer-events: none; transition: opacity .3s;
+}
+.mobile-nav.open { opacity: 1; pointer-events: all; }
+.mobile-nav a {
+  font-family: var(--font-head); font-size: 28px; font-weight: 700;
+  color: var(--white); text-decoration: none; padding: 8px 24px;
+  border-radius: var(--radius-md); transition: background .2s, color .2s;
+}
+.mobile-nav a:hover { background: rgba(26,95,110,.4); color: var(--teal-3); }
+.mobile-close {
+  position: absolute; top: 20px; right: 24px;
+  background: none; border: none; cursor: pointer;
+  font-size: 32px; color: var(--slate-3); transition: color .2s;
+}
+.mobile-close:hover { color: var(--white); }
 
-  /* ── PROJECTS ── */
-  #projects { background: var(--paper); }
-  .projects-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1.5rem;
-  }
-  .proj-card {
-    background: var(--card); border: 1px solid var(--line);
-    padding: 1.8rem; display: flex; flex-direction: column; gap: 0.8rem;
-    transition: all 0.25s;
-  }
-  .proj-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,58,92,0.1); }
-  .proj-badge {
-    display: inline-flex; align-items: center;
-    font-family: 'DM Mono', monospace; font-size: 0.58rem;
-    padding: 0.18rem 0.55rem; letter-spacing: 0.08em; text-transform: uppercase;
-    align-self: flex-start;
-  }
-  .badge-acad  { background: var(--blue-bg);  color: var(--accent); border: 1px solid var(--blue-border); }
-  .badge-collab{ background: var(--amber-bg); color: #8a6a2a;        border: 1px solid var(--amber-border); }
-  .badge-pub   { background: var(--green-bg); color: var(--green);   border: 1px solid var(--green-border); }
-  .badge-conf  { background: var(--blue-bg);  color: var(--accent);  border: 1px solid var(--blue-border); }
-  .proj-year {
-    font-family: 'DM Mono', monospace; font-size: 0.62rem;
-    color: var(--muted); letter-spacing: 0.08em;
-  }
-  .proj-title {
-    font-family: 'Cormorant Garamond', serif; font-size: 1.12rem;
-    font-weight: 600; color: var(--accent); line-height: 1.3;
-  }
-  .proj-meta { font-size: 0.76rem; color: var(--gold); font-style: italic; }
-  .proj-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
-  .proj-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
-  .proj-bullets li {
-    font-size: 0.8rem; color: #3a3a3a; padding-left: 1.1rem;
-    position: relative; line-height: 1.55;
-  }
-  .proj-bullets li::before {
-    content: '›'; position: absolute; left: 0;
-    color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 1rem; line-height: 1.3;
-  }
-  .proj-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.4rem; }
-  .ptag {
-    font-family: 'DM Mono', monospace; font-size: 0.58rem;
-    padding: 0.18rem 0.55rem; border: 1px solid var(--line); color: var(--muted); letter-spacing: 0.06em;
-  }
-
-  /* ── EXPERIENCE ── */
-  #experience { background: var(--card); }
-  .exp-list { display: flex; flex-direction: column; }
-  .exp-item {
-    display: grid; grid-template-columns: 130px 1fr;
-    gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--line);
-  }
-  .exp-period {
-    font-family: 'DM Mono', monospace; font-size: 0.63rem;
-    color: var(--gold); letter-spacing: 0.06em; line-height: 1.6; padding-top: 0.2rem;
-  }
-  .exp-role {
-    font-family: 'Cormorant Garamond', serif; font-size: 1.08rem;
-    font-weight: 600; color: var(--accent); margin-bottom: 0.12rem;
-  }
-  .exp-org { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.75rem; font-style: italic; }
-  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
-  .exp-bullets li {
-    font-size: 0.82rem; color: #3a3a3a; line-height: 1.6;
-    padding-left: 1.1rem; position: relative;
-  }
-  .exp-bullets li::before {
-    content: '›'; position: absolute; left: 0;
-    color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 1rem; line-height: 1.3;
-  }
-
-  /* ── CONTACT ── */
-  #contact { background: var(--accent); color: #fff; }
-  #contact .sec-title { color: #fff; }
-  #contact .sec-num { color: var(--gold); }
-  #contact .sec-head { border-color: rgba(255,255,255,0.15); }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-  .contact-text {
-    font-family: 'Cormorant Garamond', serif; font-size: 1.35rem;
-    font-weight: 300; font-style: italic; color: rgba(255,255,255,0.8); line-height: 1.7;
-  }
-  .contact-text strong { color: #fff; font-style: normal; }
-  .lang-row { display: flex; gap: 1rem; margin-top: 2rem; }
-  .lang-card { padding: 0.75rem 1.4rem; border: 1px solid rgba(255,255,255,0.15); text-align: center; }
-  .lang-name { font-size: 0.88rem; color: #fff; }
-  .lang-level { font-family: 'DM Mono', monospace; font-size: 0.58rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.18rem; }
-  .contact-links { display: flex; flex-direction: column; gap: 0.85rem; }
-  .clink {
-    display: flex; align-items: center; gap: 1rem;
-    padding: 1rem 1.4rem; border: 1px solid rgba(255,255,255,0.14);
-    text-decoration: none; color: #fff; transition: all 0.25s;
-  }
-  .clink:hover { background: rgba(255,255,255,0.08); border-color: var(--gold); transform: translateX(5px); }
-  .clink-icon { font-family: 'DM Mono', monospace; font-size: 0.9rem; width: 1.3rem; text-align: center; flex-shrink: 0; }
-  .clink-inner { display: flex; flex-direction: column; gap: 0.08rem; }
-  .clink-lbl { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
-  .clink-val { font-size: 0.84rem; color: rgba(255,255,255,0.85); }
-
-  footer {
-    background: #090f16; color: rgba(255,255,255,0.28);
-    text-align: center; padding: 1.4rem;
-    font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em;
-  }
-
-  /* ANIM */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(22px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .hero-left > * { animation: fadeUp 0.7s ease both; }
-  .hero-tag      { animation-delay: 0.1s; }
-  .hero-name     { animation-delay: 0.2s; }
-  .hero-title    { animation-delay: 0.28s; }
-  .hero-subtitle { animation-delay: 0.34s; }
-  .hero-tagline  { animation-delay: 0.4s; }
-  .hero-cta      { animation-delay: 0.5s; }
-
-  /* RESPONSIVE */
-  @media (max-width: 920px) {
-    nav { padding: 1rem 1.2rem; }
-    .nav-links { gap: 1rem; }
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left { padding: 7rem 1.4rem 3rem; }
-    .hero-right { min-height: 260px; }
-    .hero-cards { grid-template-columns: repeat(3, 1fr); padding: 1.4rem; gap: 0.8rem; }
-    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.2rem; }
-    .exp-item, .form-item { grid-template-columns: 80px 1fr; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: repeat(2, 1fr); }
-    .wrap { padding: 3rem 1.2rem; }
-  }
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .hero-stats { display: none; }
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  section { padding: 72px 24px; }
+  .nav { padding: 0 24px; }
+  .hero { padding: 100px 24px 72px; }
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .profil-grid { grid-template-columns: 1fr; gap: 36px; }
+  .works-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+  .edu-item, .exp-item { grid-template-columns: 1fr; gap: 8px; }
+  .edu-year, .exp-period { text-align: left; }
+  footer { flex-direction: column; gap: 14px; text-align: center; }
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <a class="nav-logo" href="#">R. ZANNOU</a>
+<nav class="nav" id="mainNav">
+  <span class="nav-brand">RZ · PORTFOLIO</span>
   <ul class="nav-links">
-    <li><a href="#about">Profil</a></li>
+    <li><a href="#profil">Profil</a></li>
     <li><a href="#formation">Formation</a></li>
-    <li><a href="#skills">Compétences</a></li>
-    <li><a href="#projects">Travaux</a></li>
-    <li><a href="#experience">Expériences</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#travaux">Travaux</a></li>
+    <li><a href="#experiences">Expériences</a></li>
   </ul>
+  <a href="#contact" class="nav-cta">Contact</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-left">
-    <div class="hero-tag">Portfolio — 2025 / 2026</div>
-    <h1 class="hero-name">Rétis<br><span>ZANNOU</span></h1>
-    <p class="hero-title">Ingénierie des Données &amp; Évaluations Économétriques</p>
-    <p class="hero-subtitle">M2 IDEE · Université d'Angers · Candidat au doctorat</p>
-    <p class="hero-tagline">
-      Profil hybride : rigueur de la modélisation mathématique et sens de la stratégie institutionnelle. 4 ans d'expérience en analyse de données, recherche académique et conseil.
-    </p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn-primary">Voir mes travaux →</a>
-      <a href="#contact" class="btn-secondary">Me contacter</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-bg"></div>
-    <div class="hero-cards">
-      <div class="stat-card"><div class="stat-num">2</div><div class="stat-lbl">Masters</div></div>
-      <div class="stat-card"><div class="stat-num">4+</div><div class="stat-lbl">Ans d'expérience</div></div>
-      <div class="stat-card"><div class="stat-num">1</div><div class="stat-lbl">Publication</div></div>
-      <div class="stat-card"><div class="stat-num">4</div><div class="stat-lbl">Conférences</div></div>
-      <div class="stat-card"><div class="stat-num">12+</div><div class="stat-lbl">Outils</div></div>
-      <div class="stat-card"><div class="stat-num">PhD</div><div class="stat-lbl">Objectif</div></div>
-    </div>
-  </div>
+<!-- MOBILE MENU -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileClose">×</button>
+  <a href="#profil" class="mob-link">Profil</a>
+  <a href="#formation" class="mob-link">Formation</a>
+  <a href="#competences" class="mob-link">Compétences</a>
+  <a href="#travaux" class="mob-link">Travaux</a>
+  <a href="#experiences" class="mob-link">Expériences</a>
+  <a href="#contact" class="mob-link">Contact</a>
 </div>
 
-<!-- 01 ABOUT -->
-<section id="about">
-  <div class="wrap">
-    <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">Profil</h2></div>
-    <div class="about-grid">
-      <div class="about-text">
-        <div class="profile-badge">Profil hybride : Data &amp; Stratégie</div>
-        <p>Titulaire d'un Master Recherche en Macroéconomie ouverte (Université d'Abomey-Calavi, 2023) et actuellement en Master 2 Ingénierie des Données et Évaluations Économétriques à l'Université d'Angers, je combine la rigueur de la modélisation mathématique avec le sens de la stratégie institutionnelle, fort de 4 ans d'expérience en tant qu'Assistant-Consultant en analyse de données.</p>
-        <p>Passionné par la prévision économique et l'analyse de données, je maîtrise les méthodes quantitatives avancées : économétrie structurelle (R, Stata, Python), modélisation d'équilibre général calculable (GAMS), scoring et classification (Machine Learning), ainsi que les outils de Business Intelligence (Power BI, SQL). J'ai notamment développé un modèle de scoring risque en partenariat avec Deloitte et réalisé des analyses d'élasticité-prix appliquées à des problématiques de Revenue Management.</p>
-        <p>En parallèle, mon ancrage dans la recherche académique se traduit par une publication dans une revue à comité de lecture, des communications dans des conférences internationales, et des travaux de revue de littérature en théorie des incitations. Candidat à un contrat doctoral, mes intérêts de recherche s'orientent vers les finances climatiques, la régulation financière et l'évaluation des politiques publiques.</p>
-        <div class="interest-box">
-          <div class="interest-box-title">Intérêts de recherche &amp; domaines d'expertise</div>
-          <div class="tags">
-            <span class="tag-item">Économétrie financière</span>
-            <span class="tag-item">Prévision économique</span>
-            <span class="tag-item">Finances climatiques</span>
-            <span class="tag-item">Évaluation de politiques publiques</span>
-            <span class="tag-item">Finances publiques</span>
-            <span class="tag-item">Régulation macroprudentielle</span>
-            <span class="tag-item">Revenue Management</span>
-            <span class="tag-item">Business Intelligence</span>
-            <span class="tag-item">Économie bancaire</span>
-            <span class="tag-item">Changement climatique</span>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      M2 IDEE · Université d'Angers · 2025-2026
+    </div>
+    <h1 class="hero-name">Rétis<br><em>ZANNOU</em></h1>
+    <p class="hero-subtitle">Ingénierie des Données &amp; Évaluations Économétriques<br>Profil hybride : modélisation quantitative &amp; stratégie institutionnelle</p>
+    <div class="hero-meta">
+      <div class="hero-pill">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Angers · Mobile France
+      </div>
+      <div class="hero-pill">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        Candidat au doctorat
+      </div>
+      <div class="hero-pill">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        4+ ans d'expérience
+      </div>
+      <div class="hero-pill">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        1 publication · 4 conférences
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a href="#travaux" class="btn-primary">Voir mes travaux</a>
+      <a href="#contact" class="btn-outline">Me contacter</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-box"><span class="stat-num">2</span><span class="stat-lbl">Masters</span></div>
+    <div class="stat-box"><span class="stat-num">4+</span><span class="stat-lbl">Années</span></div>
+    <div class="stat-box"><span class="stat-num">12+</span><span class="stat-lbl">Outils</span></div>
+    <div class="stat-box"><span class="stat-num">PhD</span><span class="stat-lbl">Objectif</span></div>
+  </div>
+</section>
+
+<!-- PROFIL -->
+<section class="profil reveal" id="profil">
+  <div class="inner">
+    <div class="sec-header">
+      <p class="sec-tag">01 · Profil</p>
+      <h2 class="sec-head">Profil hybride<br>Data &amp; Stratégie</h2>
+      <p class="sec-sub">Rigueur de la modélisation mathématique, sens de la stratégie institutionnelle.</p>
+    </div>
+    <div class="profil-grid">
+      <div class="profil-text">
+        <p>Titulaire d'un Master Recherche en Macroéconomie ouverte (Université d'Abomey-Calavi, 2023) et actuellement en Master 2 Ingénierie des Données et Évaluations Économétriques à l'Université d'Angers, je combine la rigueur de la modélisation mathématique avec le sens de la stratégie institutionnelle.</p>
+        <p>Fort de 4 ans d'expérience en tant qu'Assistant-Consultant, je maîtrise les méthodes quantitatives avancées : économétrie structurelle (R, Stata, Python), modélisation d'équilibre général calculable (GAMS), scoring et classification (Machine Learning), ainsi que les outils de Business Intelligence (Power BI, SQL).</p>
+        <p>J'ai développé un modèle de scoring risque en partenariat avec Deloitte et réalisé des analyses d'élasticité-prix appliquées à des problématiques de Revenue Management. Mes intérêts de recherche s'orientent vers les finances climatiques, la régulation financière et l'évaluation des politiques publiques.</p>
+        <div class="tags-wrap">
+          <span class="tag">Économétrie financière</span>
+          <span class="tag">Prévision économique</span>
+          <span class="tag">Finances climatiques</span>
+          <span class="tag">Politiques publiques</span>
+          <span class="tag">Revenue Management</span>
+          <span class="tag">Business Intelligence</span>
+          <span class="tag">Régulation macroprudentielle</span>
+          <span class="tag">Changement climatique</span>
+        </div>
+      </div>
+      <div>
+        <div class="info-card">
+          <p class="info-card-title">Coordonnées</p>
+          <div class="info-row">
+            <div class="info-icon"><svg width="16" height="16" fill="none" stroke="var(--teal)" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+            <div><p class="info-lbl">Email</p><p class="info-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e69483928f959c8788888993a68e89928b878f8ac885898b">[email&#160;protected]</a></p></div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon"><svg width="16" height="16" fill="none" stroke="var(--teal)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.25-.44 12.81 12.81 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><p class="info-lbl">Téléphone</p><p class="info-val">+33 7 58 11 79 37</p></div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon"><svg width="16" height="16" fill="none" stroke="var(--teal)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+            <div><p class="info-lbl">Localisation</p><p class="info-val">Angers, France · Mobile France</p></div>
+          </div>
+        </div>
+        <div class="info-card">
+          <p class="info-card-title">Disponibilité</p>
+          <div class="info-row">
+            <div class="info-icon"><svg width="16" height="16" fill="none" stroke="var(--teal)" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 0-4 0v2"/></svg></div>
+            <div><p class="info-lbl">Stage</p><p class="info-val">Consultant Stagiaire Data &amp; Stratégie - immédiat</p></div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon"><svg width="16" height="16" fill="none" stroke="var(--teal)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+            <div><p class="info-lbl">Doctorat</p><p class="info-val">Contrat doctoral en Économie - rentrée 2026</p></div>
+          </div>
+        </div>
+        <div class="info-card">
+          <p class="info-card-title">Langues</p>
+          <div class="info-row" style="margin-bottom:0">
+            <div style="flex:1"><p class="info-val">Français</p><p class="info-lbl">Langue natif</p></div>
+            <div style="flex:1"><p class="info-val">Anglais</p><p class="info-lbl">Niveau B1</p></div>
           </div>
         </div>
       </div>
-      <div class="meta-col">
-        <div class="meta-row"><span class="meta-lbl">Formation actuelle</span><span class="meta-val">M2 IDEE — Université d'Angers</span></div>
-        <div class="meta-row"><span class="meta-lbl">Formation antérieure</span><span class="meta-val">Master Recherche Macroéconomie ouverte — Université d'Abomey-Calavi (2023)</span></div>
-        <div class="meta-row"><span class="meta-lbl">Localisation</span><span class="meta-val">Angers, France (Mobile Île-de-France)</span></div>
-        <div class="meta-row"><span class="meta-lbl">Contact</span><span class="meta-val">retiszannou@hotmail.com<br>+33 7 58 11 79 37</span></div>
-        <div class="meta-row"><span class="meta-lbl">Objectif doctoral</span><span class="meta-val">Contrat doctoral en économie appliquée — rentrée 2026</span></div>
-        <div class="meta-row"><span class="meta-lbl">Disponibilité stage</span><span class="meta-val">Consultant Stagiaire Data &amp; Stratégie — immédiat</span></div>
-        <div class="meta-row"><span class="meta-lbl">Langues</span><span class="meta-val">Français (natif) · Anglais (B1)</span></div>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- 02 FORMATION -->
-<section id="formation">
-  <div class="wrap">
-    <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title">Formation</h2></div>
-    <div class="form-list">
-      <div class="form-item">
-        <div class="form-year">En cours<br>2025–2026</div>
+<!-- FORMATION -->
+<section class="formation reveal" id="formation">
+  <div class="inner">
+    <div class="sec-header">
+      <p class="sec-tag">02 · Formation</p>
+      <h2 class="sec-head">Parcours académique</h2>
+    </div>
+    <div class="formation-list">
+      <div class="edu-item">
+        <div class="edu-year">2025<br>2026</div>
         <div>
-          <div class="form-degree">Master 2 Ingénierie des Données et Évaluations Économétriques (IDEE)</div>
-          <div class="form-school">Université d'Angers, France</div>
-          <div class="form-detail">Spécialisation : Prévision économique, méthodes quantitatives d'aide à la décision, Big Data. Projets : modèles statistiques appliqués aux problématiques financières.</div>
+          <span class="edu-badge">En cours</span>
+          <p class="edu-degree">Master 2 Ingénierie des Données et Évaluations Économétriques (IDEE)</p>
+          <p class="edu-school">Université d'Angers, France</p>
+          <p class="edu-desc">Spécialisation : prévision économique, méthodes quantitatives d'aide à la décision, Big Data. Projets : modèles statistiques appliqués aux problématiques financières.</p>
         </div>
       </div>
-      <div class="form-item">
-        <div class="form-year">2022–2023</div>
+      <div class="edu-item">
+        <div class="edu-year">2022<br>2023</div>
         <div>
-          <div class="form-degree">Master Recherche en Macroéconomie ouverte</div>
-          <div class="form-school">Université d'Abomey-Calavi, Cotonou, Bénin</div>
-          <div class="form-detail">Mémoire : Analyse du coût marginal des fonds publics au Bénin. Modélisation EGC sous GAMS.</div>
+          <p class="edu-degree">Master Recherche en Macroéconomie ouverte</p>
+          <p class="edu-school">Université d'Abomey-Calavi, Cotonou, Bénin</p>
+          <p class="edu-desc">Mémoire : Analyse du coût marginal des fonds publics au Bénin. Modélisation EGC sous GAMS. Communication au 4e Workshop en économie du développement, UAC, Mars 2023.</p>
         </div>
       </div>
-      <div class="form-item">
-        <div class="form-year">2018</div>
+      <div class="edu-item">
+        <div class="edu-year">2018</div>
         <div>
-          <div class="form-degree">Licence professionnelle en Économie Appliquée</div>
-          <div class="form-school">Université d'Abomey-Calavi, Bénin</div>
+          <p class="edu-degree">Licence professionnelle en Économie Appliquée</p>
+          <p class="edu-school">Université d'Abomey-Calavi, Bénin</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 03 SKILLS -->
-<section id="skills">
-  <div class="wrap">
-    <div class="sec-head"><span class="sec-num">03</span><h2 class="sec-title">Compétences</h2></div>
-    <div class="skills-block">
-
-      <div>
-        <div class="skill-cat-title">Data Analyst &amp; Économétrie</div>
-        <div class="skills-grid">
-          <div class="sk"><div class="sk-icon">📊</div><div class="sk-name">R</div><div class="sk-desc">Séries temporelles, données de panel, stats avancées</div><div class="sk-bar"><div class="sk-fill" style="width:90%"></div></div></div>
-          <div class="sk"><div class="sk-icon">🐍</div><div class="sk-name">Python</div><div class="sk-desc">Pandas, modélisation prédictive, nettoyage de données</div><div class="sk-bar"><div class="sk-fill" style="width:85%"></div></div></div>
-          <div class="sk"><div class="sk-icon">📈</div><div class="sk-name">Stata</div><div class="sk-desc">Économétrie appliquée, évaluation d'impact</div><div class="sk-bar"><div class="sk-fill" style="width:88%"></div></div></div>
-          <div class="sk"><div class="sk-icon">📋</div><div class="sk-name">SAS</div><div class="sk-desc">Analyse statistique, data management</div><div class="sk-bar"><div class="sk-fill" style="width:72%"></div></div></div>
-          <div class="sk"><div class="sk-icon">📉</div><div class="sk-name">GRETL</div><div class="sk-desc">Séries temporelles, modèles VAR</div><div class="sk-bar"><div class="sk-fill" style="width:75%"></div></div></div>
-          <div class="sk"><div class="sk-icon">📐</div><div class="sk-name">TSP</div><div class="sk-desc">Modèles économétriques structurels</div><div class="sk-bar"><div class="sk-fill" style="width:70%"></div></div></div>
+<!-- COMPÉTENCES -->
+<section class="competences reveal" id="competences">
+  <div class="inner">
+    <div class="sec-header">
+      <p class="sec-tag light">03 · Compétences</p>
+      <h2 class="sec-head light">Stack technique</h2>
+      <p class="sec-sub light">Des outils maîtrisés pour l'analyse, la modélisation et la visualisation des données.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-icon"><svg width="20" height="20" fill="none" stroke="var(--teal-3)" stroke-width="1.8" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <p class="skill-group-title">Économétrie &amp; Statistique</p>
+        <div class="skill-chips">
+          <span class="skill-chip">R</span><span class="skill-chip">Python</span><span class="skill-chip">Stata</span>
+          <span class="skill-chip">SAS</span><span class="skill-chip">GRETL</span><span class="skill-chip">TSP</span>
+          <span class="skill-chip">Séries temporelles</span><span class="skill-chip">Panel data</span>
         </div>
       </div>
-
-      <div>
-        <div class="skill-cat-title">Business Intelligence &amp; Modélisation</div>
-        <div class="skills-grid">
-          <div class="sk"><div class="sk-icon">🤖</div><div class="sk-name">Machine Learning</div><div class="sk-desc">Régressions, clustering, classification, scoring</div><div class="sk-bar"><div class="sk-fill" style="width:80%"></div></div></div>
-          <div class="sk"><div class="sk-icon">⚙️</div><div class="sk-name">GAMS</div><div class="sk-desc">Optimisation, équilibre général calculable (EGC)</div><div class="sk-bar"><div class="sk-fill" style="width:75%"></div></div></div>
-          <div class="sk"><div class="sk-icon">📊</div><div class="sk-name">Power BI</div><div class="sk-desc">Tableaux de bord, KPIs, visualisation interactive</div><div class="sk-bar"><div class="sk-fill" style="width:78%"></div></div></div>
-          <div class="sk"><div class="sk-icon">🗄️</div><div class="sk-name">SQL</div><div class="sk-desc">Extraction et structuration de données</div><div class="sk-bar"><div class="sk-fill" style="width:82%"></div></div></div>
-          <div class="sk"><div class="sk-icon">🔢</div><div class="sk-name">VBA / Excel</div><div class="sk-desc">Automatisation, macros avancées</div><div class="sk-bar"><div class="sk-fill" style="width:68%"></div></div></div>
-          <div class="sk"><div class="sk-icon">📝</div><div class="sk-name">LaTeX</div><div class="sk-desc">Rédaction académique et scientifique</div><div class="sk-bar"><div class="sk-fill" style="width:88%"></div></div></div>
+      <div class="skill-group">
+        <div class="skill-group-icon"><svg width="20" height="20" fill="none" stroke="var(--teal-3)" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg></div>
+        <p class="skill-group-title">Modélisation &amp; ML</p>
+        <div class="skill-chips">
+          <span class="skill-chip">Machine Learning</span><span class="skill-chip">GAMS</span>
+          <span class="skill-chip">Clustering</span><span class="skill-chip">Classification</span>
+          <span class="skill-chip">Scoring risque</span><span class="skill-chip">Régression</span>
         </div>
       </div>
-
-      <div>
-        <div class="skill-cat-title">Compétences transversales</div>
-        <div class="softskills-grid">
-          <div class="softskill">Esprit de synthèse et rédaction stratégique pour dirigeants</div>
-          <div class="softskill">Analyse de marché, élasticité-prix, KPIs de performance</div>
-          <div class="softskill">Rigueur analytique et méthodologique</div>
-          <div class="softskill">Gestion de projets de recherche et de conseil</div>
-          <div class="softskill">Collecte terrain (KoboCollect, Google Forms)</div>
-          <div class="softskill">Suivi-évaluation et planification stratégique</div>
+      <div class="skill-group">
+        <div class="skill-group-icon"><svg width="20" height="20" fill="none" stroke="var(--teal-3)" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+        <p class="skill-group-title">Business Intelligence</p>
+        <div class="skill-chips">
+          <span class="skill-chip">Power BI</span><span class="skill-chip">SQL</span>
+          <span class="skill-chip">VBA / Excel</span><span class="skill-chip">KPIs</span>
+          <span class="skill-chip">Tableaux de bord</span>
         </div>
       </div>
-
+      <div class="skill-group">
+        <div class="skill-group-icon"><svg width="20" height="20" fill="none" stroke="var(--teal-3)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <p class="skill-group-title">Rédaction &amp; Recherche</p>
+        <div class="skill-chips">
+          <span class="skill-chip">LaTeX</span><span class="skill-chip">Revue de littérature</span>
+          <span class="skill-chip">Rapports stratégiques</span><span class="skill-chip">Publications</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon"><svg width="20" height="20" fill="none" stroke="var(--teal-3)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <p class="skill-group-title">Compétences transversales</p>
+        <div class="skill-chips">
+          <span class="skill-chip">Collecte terrain</span><span class="skill-chip">KoboCollect</span>
+          <span class="skill-chip">Suivi-évaluation</span><span class="skill-chip">Planification</span>
+          <span class="skill-chip">Analyse de marché</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon"><svg width="20" height="20" fill="none" stroke="var(--teal-3)" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <p class="skill-group-title">Domaines d'expertise</p>
+        <div class="skill-chips">
+          <span class="skill-chip">Finances climatiques</span><span class="skill-chip">Finances publiques</span>
+          <span class="skill-chip">Revenue Management</span><span class="skill-chip">Économie bancaire</span>
+          <span class="skill-chip">Politique industrielle</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 04 PROJECTS & PUBLICATIONS -->
-<section id="projects">
-  <div class="wrap">
-    <div class="sec-head"><span class="sec-num">04</span><h2 class="sec-title">Travaux &amp; Publications</h2></div>
-    <div class="projects-grid">
-
-      <!-- Scoring Deloitte -->
-      <div class="proj-card">
-        <span class="proj-badge badge-collab">Projet · Partenariat Deloitte</span>
-        <div class="proj-year">2025</div>
-        <div class="proj-title">Modélisation de Scoring Risque</div>
-        <ul class="proj-bullets">
-          <li>Développement d'un algorithme de scoring (Python) pour segmenter les profils à risque par clustering et classification</li>
-          <li>Création d'outils de visualisation pour l'aide à la décision</li>
-          <li>Restitution des résultats à des interlocuteurs non-techniciens</li>
-        </ul>
-        <div class="proj-tags">
-          <span class="ptag">Python</span><span class="ptag">Machine Learning</span>
-          <span class="ptag">Clustering</span><span class="ptag">Power BI</span>
+<!-- TRAVAUX -->
+<section class="travaux reveal" id="travaux">
+  <div class="inner">
+    <div class="sec-header">
+      <p class="sec-tag">04 · Travaux &amp; Publications</p>
+      <h2 class="sec-head">Projets &amp; recherche</h2>
+      <p class="sec-sub">Une sélection de projets académiques, collaborations et publications scientifiques.</p>
+    </div>
+    <div class="works-grid">
+      <div class="work-card featured">
+        <div class="work-top">
+          <span class="work-type">Partenariat Deloitte</span>
+          <span class="work-year">2025</span>
+        </div>
+        <h3 class="work-title">Modélisation de Scoring Risque</h3>
+        <p class="work-desc">Développement d'un algorithme de scoring (Python) pour segmenter les profils à risque par clustering et classification. Création d'outils de visualisation pour l'aide à la décision. Restitution des résultats à des interlocuteurs non-techniciens.</p>
+        <div class="work-chips">
+          <span class="work-chip">Python</span><span class="work-chip">Machine Learning</span>
+          <span class="work-chip">Clustering</span><span class="work-chip">Power BI</span>
         </div>
       </div>
-
-      <!-- Pricing -->
-      <div class="proj-card">
-        <span class="proj-badge badge-acad">Projet académique</span>
-        <div class="proj-year">2025</div>
-        <div class="proj-title">Étude de Pricing &amp; Comportement (Économétrie)</div>
-        <ul class="proj-bullets">
-          <li>Modélisation de l'élasticité-prix pour définir la stratégie tarifaire optimale (Revenue Management)</li>
-          <li>Régressions multiples appliquées en R et Python</li>
-          <li>Rédaction de recommandations stratégiques basées sur l'analyse quantitative</li>
-        </ul>
-        <div class="proj-tags">
-          <span class="ptag">R</span><span class="ptag">Python</span>
-          <span class="ptag">Élasticité-prix</span><span class="ptag">Revenue Management</span>
+      <div class="work-card">
+        <div class="work-top">
+          <span class="work-type">Projet académique</span>
+          <span class="work-year">2025</span>
+        </div>
+        <h3 class="work-title">Étude de Pricing &amp; Comportement</h3>
+        <p class="work-desc">Modélisation de l'élasticité-prix pour définir la stratégie tarifaire optimale (Revenue Management). Régressions multiples appliquées en R et Python. Rédaction de recommandations stratégiques basées sur l'analyse quantitative.</p>
+        <div class="work-chips">
+          <span class="work-chip">R</span><span class="work-chip">Python</span>
+          <span class="work-chip">Élasticité-prix</span><span class="work-chip">Revenue Management</span>
         </div>
       </div>
-
-      <!-- Publication -->
-      <div class="proj-card">
-        <span class="proj-badge badge-pub">Publication · Revue à comité de lecture</span>
-        <div class="proj-year">Mai 2024</div>
-        <div class="proj-title">Décentralisation financière et dépenses locales au Bénin</div>
-        <div class="proj-meta">CHABI, E. A. &amp; ZANNOU, M. O. R.</div>
-        <div class="proj-desc">Revue Française d'Économie et de Gestion, Vol. 5, N° 5, pp. 473–496. Analyse de l'efficacité des dépenses locales dans les collectivités territoriales du Bénin, approche basée sur le concept d'efficacité.</div>
-        <div class="proj-tags">
-          <span class="ptag">Finances publiques</span><span class="ptag">Décentralisation</span>
-          <span class="ptag">Bénin</span><span class="ptag">Économétrie</span>
+      <div class="work-card">
+        <div class="work-top">
+          <span class="work-type">Publication · Revue à comité</span>
+          <span class="work-year">Mai 2024</span>
+        </div>
+        <h3 class="work-title">Décentralisation financière et dépenses locales au Bénin</h3>
+        <p class="work-desc">CHABI, E. A. &amp; ZANNOU, M. O. R., Revue Française d'Économie et de Gestion, Vol. 5, N° 5, pp. 473-496. Analyse de l'efficacité des dépenses locales dans les collectivités territoriales du Bénin.</p>
+        <div class="work-chips">
+          <span class="work-chip">Finances publiques</span><span class="work-chip">Décentralisation</span>
+          <span class="work-chip">Bénin</span><span class="work-chip">Économétrie</span>
         </div>
       </div>
-
-      <!-- Mémoire GAMS -->
-      <div class="proj-card">
-        <span class="proj-badge badge-acad">Mémoire de Master Recherche</span>
-        <div class="proj-year">2023</div>
-        <div class="proj-title">Analyse du coût marginal des fonds publics au Bénin</div>
-        <ul class="proj-bullets">
-          <li>Implémentation d'un modèle d'équilibre général calculable (EGC) sous GAMS</li>
-          <li>Analyse des implications pour l'efficacité des politiques fiscales</li>
-          <li>Communication au 4e Workshop en économie du développement, UAC, Mars 2023</li>
-        </ul>
-        <div class="proj-tags">
-          <span class="ptag">GAMS</span><span class="ptag">EGC</span>
-          <span class="ptag">Politiques fiscales</span><span class="ptag">Bénin</span>
+      <div class="work-card">
+        <div class="work-top">
+          <span class="work-type">Mémoire de Master</span>
+          <span class="work-year">2023</span>
+        </div>
+        <h3 class="work-title">Analyse du coût marginal des fonds publics au Bénin</h3>
+        <p class="work-desc">Implémentation d'un modèle d'équilibre général calculable (EGC) sous GAMS. Analyse des implications pour l'efficacité des politiques fiscales. Communication au 4e Workshop en économie du développement, UAC.</p>
+        <div class="work-chips">
+          <span class="work-chip">GAMS</span><span class="work-chip">EGC</span>
+          <span class="work-chip">Politiques fiscales</span><span class="work-chip">Bénin</span>
         </div>
       </div>
-
-      <!-- Conférences -->
-      <div class="proj-card">
-        <span class="proj-badge badge-conf">Communications scientifiques</span>
-        <div class="proj-year">2020 — 2025</div>
-        <div class="proj-title">Conférences &amp; Ateliers internationaux</div>
-        <ul class="proj-bullets">
-          <li>5th Young Scholars Conference on Structural Change and Industrial Policy in Africa — Abomey-Calavi, Juin 2025</li>
-          <li>4th Young Scholars Conference on Structural Change and Industrial Policy in Africa — Juin 2024</li>
-          <li>4e Workshop en économie du développement — UAC, Mars 2023</li>
-          <li>Joint ASE–UAC–UNamur Workshop — Cotonou, Janvier 2020</li>
-        </ul>
-        <div class="proj-tags">
-          <span class="ptag">Politique industrielle</span><span class="ptag">Afrique</span>
-          <span class="ptag">Économie du développement</span>
+      <div class="work-card">
+        <div class="work-top">
+          <span class="work-type">Revue de littérature · M2</span>
+          <span class="work-year">2025</span>
+        </div>
+        <h3 class="work-title">Rationing in the Credit Markets</h3>
+        <p class="work-desc">HABONIMANA K. &amp; ZANNOU M. O. R., dir. Diana POP, Université d'Angers. Synthèse exhaustive (65+ références, 30 pages, 41 équations). Mécanismes d'information asymétrique, implications macroéconomiques et fintech.</p>
+        <div class="work-chips">
+          <span class="work-chip">Théorie des incitations</span><span class="work-chip">Finance</span>
+          <span class="work-chip">LaTeX</span><span class="work-chip">Asymétrie d'information</span>
         </div>
       </div>
-
-      <!-- Literature review -->
-      <div class="proj-card">
-        <span class="proj-badge badge-acad">Revue de littérature — M2</span>
-        <div class="proj-year">2025</div>
-        <div class="proj-title">Rationing in the Credit Markets</div>
-        <div class="proj-meta">HABONIMANA K. &amp; ZANNOU M. O. R. — dir. Diana POP, Université d'Angers</div>
-        <div class="proj-desc">Synthèse exhaustive sur le rationnement du crédit (65+ références, 30 pages, 41 équations). Fondements théoriques, mécanismes d'information asymétrique, implications macroéconomiques et fintech.</div>
-        <div class="proj-tags">
-          <span class="ptag">Théorie des incitations</span><span class="ptag">Finance</span>
-          <span class="ptag">LaTeX</span><span class="ptag">Asymétrie d'information</span>
+      <div class="work-card">
+        <div class="work-top">
+          <span class="work-type">Conférences internationales</span>
+          <span class="work-year">2020-2025</span>
+        </div>
+        <h3 class="work-title">Communications scientifiques</h3>
+        <p class="work-desc">5th Young Scholars Conference on Structural Change and Industrial Policy in Africa (2025), 4th Young Scholars Conference (2024), 4e Workshop en économie du développement, UAC (2023), Joint ASE-UAC-UNamur Workshop (2020).</p>
+        <div class="work-chips">
+          <span class="work-chip">Politique industrielle</span><span class="work-chip">Afrique</span>
+          <span class="work-chip">Économie du développement</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- 05 EXPERIENCE -->
-<section id="experience">
-  <div class="wrap">
-    <div class="sec-head"><span class="sec-num">05</span><h2 class="sec-title">Expériences</h2></div>
+<!-- EXPÉRIENCES -->
+<section class="experiences reveal" id="experiences">
+  <div class="inner">
+    <div class="sec-header">
+      <p class="sec-tag">05 · Expériences</p>
+      <h2 class="sec-head">Parcours professionnel</h2>
+    </div>
     <div class="exp-list">
-
       <div class="exp-item">
-        <div class="exp-period">2022–2025</div>
+        <div class="exp-period">2022-2025</div>
         <div>
-          <div class="exp-role">Assistant-Consultant — Département Programmes et Études</div>
-          <div class="exp-org">Plan Stratégique d'Action Pastorale de l'Archidiocèse de Cotonou, Bénin</div>
+          <p class="exp-role">Assistant-Consultant, Département Programmes et Études</p>
+          <p class="exp-org">Plan Stratégique d'Action Pastorale de l'Archidiocèse de Cotonou, Bénin</p>
           <ul class="exp-bullets">
-            <li>Évaluation du Plan Stratégique 2017–2022 : collecte et analyse de données qualitatives et quantitatives</li>
-            <li>Rédaction de rapports d'aide à la décision et mise en place d'outils de suivi et de pilotage</li>
-            <li>Rédaction du Rapport de référence du PSAP II et du programme « Église Verte »</li>
+            <li>Evaluation du Plan Stratégique 2017-2022.</li>
+            <li>Analyse de données qualitatives et quantitatives et rédaction de rapports d'aide à la décision.</li>
+            <li>Mise en place d'outils de suivi et de pilotage.</li>
           </ul>
         </div>
       </div>
-
       <div class="exp-item">
         <div class="exp-period">Depuis jan. 2024</div>
         <div>
-          <div class="exp-role">Assistant-Coordonnateur — Programme « Église Verte »</div>
-          <div class="exp-org">Fondation de l'Archidiocèse de Cotonou (FAC), Bénin</div>
+          <p class="exp-role">Assistant-Coordonnateur, Programme « Église Verte »</p>
+          <p class="exp-org">Fondation de l'Archidiocèse de Cotonou (FAC), Bénin</p>
           <ul class="exp-bullets">
-            <li>Collecte, structuration de données et suivi des indicateurs liés aux activités du programme</li>
-            <li>Appui à la prise de décision stratégique et rédaction de rapports d'activité</li>
-            <li>Formation des points focaux et organisation de la table ronde des partenaires</li>
+            <li>Collecte, structuration de données et suivi des indicateurs liés aux activités du programme.</li>
+            <li>Appui à la prise de décision stratégique et rédaction de rapports.</li>
           </ul>
         </div>
       </div>
-
       <div class="exp-item">
-        <div class="exp-period">2023–2024</div>
+        <div class="exp-period">2023-2024</div>
         <div>
-          <div class="exp-role">Chargé d'enseignement</div>
-          <div class="exp-org">Faculté des Sciences Économiques et de Gestion, Université d'Abomey-Calavi</div>
+          <p class="exp-role">Chargé d'enseignement</p>
+          <p class="exp-org">FASEG, Université d'Abomey-Calavi</p>
           <ul class="exp-bullets">
             <li>Cours d'Économie de l'environnement (L3) et Économie industrielle (L2), sous la supervision du Prof. Edgard GBINLO</li>
-            <li>Encadrement de mémoires de Licence 3 en Sciences Économiques (2022–2023)</li>
+            <li>Encadrement de mémoires de Licence 3 en Sciences Économiques (2022-2023)</li>
           </ul>
         </div>
       </div>
-
       <div class="exp-item">
-        <div class="exp-period">2021–2024</div>
+        <div class="exp-period">2021-2024</div>
         <div>
-          <div class="exp-role">Enquêtes de terrain &amp; Collaborateur externe</div>
-          <div class="exp-org">FASEG/UAC — Bénin</div>
+          <p class="exp-role">Enquêtes de terrain &amp; Collaborateur externe</p>
+          <p class="exp-org">FASEG / UAC, Bénin</p>
           <ul class="exp-bullets">
             <li>Collecte pour Plans de Gestion Environnementale et Sociale (PGES), 2024</li>
             <li>Consultations publiques pour la réhabilitation de 59 centres de santé, département du Plateau, 2024</li>
@@ -705,50 +736,111 @@
           </ul>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- 06 CONTACT -->
-<section id="contact">
-  <div class="wrap">
-    <div class="sec-head"><span class="sec-num">06</span><h2 class="sec-title">Contact</h2></div>
+<!-- CONTACT -->
+<section class="contact reveal" id="contact">
+  <div class="inner">
+    <div class="sec-header">
+      <p class="sec-tag light">06 · Contact</p>
+      <h2 class="sec-head light">Travaillons ensemble</h2>
+      <p class="sec-sub light">Disponible pour un stage Consultant Data &amp; Stratégie et candidat à un contrat doctoral en économie.</p>
+    </div>
     <div class="contact-grid">
       <div>
-        <p class="contact-text">
-          Disponible pour un <strong>stage Consultant Data &amp; Stratégie</strong> et candidat à un <strong>contrat doctoral</strong> en économie appliquée. Ouvert à toute opportunité en France, notamment en Île-de-France.
-        </p>
-        <div class="lang-row">
-          <div class="lang-card"><div class="lang-name">Français</div><div class="lang-level">Natif</div></div>
-          <div class="lang-card"><div class="lang-name">Anglais</div><div class="lang-level">Niveau B1</div></div>
+        <div class="contact-links">
+          <a href="/cdn-cgi/l/email-protection#7c0e1908150f061d121213093c141308111d1510521f1311" class="contact-link">
+            <div class="contact-link-icon"><svg width="16" height="16" fill="none" stroke="var(--teal-3)" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+            <div><p class="contact-link-lbl">Email</p><p class="contact-link-val"><span class="__cf_email__" data-cfemail="91e3f4e5f8e2ebf0fffffee4d1f9fee5fcf0f8fdbff2fefc">[email&#160;protected]</span></p></div>
+          </a>
+          <a href="tel:+33758117937" class="contact-link">
+            <div class="contact-link-icon"><svg width="16" height="16" fill="none" stroke="var(--teal-3)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.25-.44 12.81 12.81 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><p class="contact-link-lbl">Téléphone</p><p class="contact-link-val">+33 7 58 11 79 37</p></div>
+          </a>
+          <a href="https://linkedin.com/in/retiszannou" target="_blank" class="contact-link">
+            <div class="contact-link-icon"><svg width="16" height="16" fill="none" stroke="var(--teal-3)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+            <div><p class="contact-link-lbl">LinkedIn</p><p class="contact-link-val">linkedin.com/in/retiszannou</p></div>
+          </a>
+          <a href="https://github.com/retiszannou" target="_blank" class="contact-link">
+            <div class="contact-link-icon"><svg width="16" height="16" fill="none" stroke="var(--teal-3)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
+            <div><p class="contact-link-lbl">GitHub</p><p class="contact-link-val">github.com/retiszannou</p></div>
+          </a>
         </div>
       </div>
-      <div class="contact-links">
-        <a href="mailto:retiszannou@hotmail.com" class="clink">
-          <span class="clink-icon">✉</span>
-          <div class="clink-inner"><span class="clink-lbl">Email</span><span class="clink-val">retiszannou@hotmail.com</span></div>
-        </a>
-        <a href="tel:+33758117937" class="clink">
-          <span class="clink-icon">☎</span>
-          <div class="clink-inner"><span class="clink-lbl">Téléphone</span><span class="clink-val">+33 7 58 11 79 37</span></div>
-        </a>
-        <a href="https://www.linkedin.com/in/retiszannou" target="_blank" class="clink">
-          <span class="clink-icon">in</span>
-          <div class="clink-inner"><span class="clink-lbl">LinkedIn</span><span class="clink-val">linkedin.com/in/retiszannou</span></div>
-        </a>
-        <a href="https://github.com/retiszannou" target="_blank" class="clink">
-          <span class="clink-icon">⌥</span>
-          <div class="clink-inner"><span class="clink-lbl">GitHub</span><span class="clink-val">github.com/retiszannou</span></div>
-        </a>
+      <div class="contact-avail">
+        <p class="avail-head">Disponibilités</p>
+        <div class="avail-item">
+          <div class="avail-dot"></div>
+          <p class="avail-text"><strong>Stage immédiat</strong> : Consultant Stagiaire Data &amp; Stratégie, ouvert à toute opportunité en France</p>
+        </div>
+        <div class="avail-item">
+          <div class="avail-dot"></div>
+          <p class="avail-text"><strong>Doctorat rentrée 2026</strong> : Contrat doctoral en économie, axes : finances climatiques, régulation financière, évaluation de politiques publiques</p>
+        </div>
+        <div class="avail-item">
+          <div class="avail-dot"></div>
+          <p class="avail-text"><strong>Mobilité France</strong> : Basé à Angers, disponible sur l'ensemble du territoire</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  © 2025–2026 Rétis ZANNOU &nbsp;·&nbsp; Université d'Angers &nbsp;·&nbsp; M2 IDEE &nbsp;|&nbsp; Angers, France
+  <span class="footer-brand">© 2025-2026 Rétis ZANNOU · M2 IDEE · Université d'Angers</span>
+  <div class="footer-links">
+    <a href="/cdn-cgi/l/email-protection#126077667b6168737c7c7d67527a7d667f737b7e3c717d7f">Email</a>
+    <a href="https://linkedin.com/in/retiszannou" target="_blank">LinkedIn</a>
+    <a href="https://github.com/retiszannou" target="_blank">GitHub</a>
+  </div>
 </footer>
+<script>
+document.body.classList.add('js-loaded');
+const nav = document.getElementById('mainNav');
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+const mobileClose = document.getElementById('mobileClose');
+const navLinks = document.querySelectorAll('.nav-links a');
+const sections = document.querySelectorAll('section[id]');
 
+function setActiveLink() {
+  let current = '';
+  const scrollY = window.scrollY;
+  sections.forEach(section => {
+    const top = section.offsetTop - 90;
+    const bottom = top + section.offsetHeight;
+    if (scrollY >= top && scrollY < bottom) current = section.id;
+  });
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+}
+
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled-hero', window.scrollY >= window.innerHeight - 68);
+  setActiveLink();
+});
+
+window.addEventListener('load', setActiveLink);
+
+hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+document.querySelectorAll('.mob-link').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
 </body>
 </html>
